@@ -26,6 +26,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
+      # binding.pry
       redirect_to user_path(@user), notice: "You have updated user successfully."
     else
       @books = @user.books

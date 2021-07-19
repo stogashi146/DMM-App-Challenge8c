@@ -25,6 +25,7 @@ class UserGroupsController < ApplicationController
 
   def create
     @group = UserGroup.new(group_params)
+    # binding.pry
     @group.orner_id = current_user.id
     member = @group.user_group_members.new
     member.user_id = current_user.id
@@ -53,7 +54,7 @@ class UserGroupsController < ApplicationController
     @group.users.delete(current_user)
     redirect_to user_groups_path
   end
-  
+
 
   private
   def group_params
